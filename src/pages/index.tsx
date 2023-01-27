@@ -1,20 +1,17 @@
 import { Flex } from "@chakra-ui/react"
 import { GraphQLClient, gql } from "graphql-request"
-import React from "react"
+import React, { useEffect } from "react"
 import { Posts } from "../types"
 
 // calling the API
-const CONTENTAPI: string = process.env.CONTENT_API as string
-const graphcms: any = new GraphQLClient(CONTENTAPI)
+const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 
 // query
 const QUERY = gql`
   {
     posts {
-      createdAt
       datePublished
       id
-      publishedAt
       slug
       title
       updatedAt
