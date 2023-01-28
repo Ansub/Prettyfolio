@@ -6,7 +6,7 @@ const customTheme = {
     raleway: {
       xs: {
         fontFamily: "Raleway, sans-serif",
-        fontSize: "12px",
+        fontSize: "14px",
       },
       sm: {
         fontFamily: "Raleway, sans-serif",
@@ -14,11 +14,11 @@ const customTheme = {
       },
       md: {
         fontFamily: "Raleway, sans-serif",
-        fontSize: "40px",
+        fontSize: "20px",
       },
       lg: {
         fontFamily: "Raleway, sans-serif",
-        fontSize: "70px",
+        fontSize: "80px",
       },
       xl: {
         fontFamily: "Raleway, sans-serif",
@@ -28,11 +28,11 @@ const customTheme = {
     cal: {
       xs: {
         fontFamily: "Cal Sans, sans-serif",
-        fontSize: "12px",
+        fontSize: "14px",
       },
       sm: {
         fontFamily: "Cal Sans, sans-serif",
-        fontSize: "12px",
+        fontSize: "22px",
       },
       md: {
         fontFamily: "Cal Sans, sans-serif",
