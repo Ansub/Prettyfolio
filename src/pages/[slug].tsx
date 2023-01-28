@@ -6,6 +6,7 @@ import { FaVuejs } from "react-icons/fa"
 import { FiFigma } from "react-icons/fi"
 import { TbBrandNextjs, TbExternalLink } from "react-icons/tb"
 import { MdDateRange } from "react-icons/md"
+import { IoIosArrowRoundBack } from "react-icons/io"
 
 import {
   SiChakraui,
@@ -17,6 +18,7 @@ import {
 import { GrGraphQl } from "react-icons/gr"
 import Head from "next/head"
 import Moment from "react-moment"
+import NextLink from "next/link"
 
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 
@@ -129,15 +131,28 @@ const SinglePost = ({ post }: { post: any }) => {
           <Flex
             direction="row"
             alignItems="center"
-            mb="1rem"
+            marginY="2rem"
             justifyContent="between"
+            width="100%"
           >
-            <Flex>
+            <Flex justifyContent="start" alignItems="start" width="33.3%">
+              <NextLink href="/">
+                <Box fontSize="1.4rem">
+                  <IoIosArrowRoundBack />
+                </Box>
+              </NextLink>
+            </Flex>
+            <Flex
+              textAlign="center"
+              justifyContent="center"
+              alignItems="center"
+              width="33.3%"
+            >
               {post.techstack?.tech.map((icon: any) => (
                 <Icon key={icon} icon={icon} />
               ))}
             </Flex>
-            <Flex justifyContent="end" alignItems="end" width="100vw">
+            <Flex width="33.3%" justifyContent="end" alignItems="end">
               <Link isExternal href={post.url}>
                 <Box fontSize="1.4rem">
                   <TbExternalLink />

@@ -32,7 +32,7 @@ const customTheme = {
       },
       sm: {
         fontFamily: "Cal Sans, sans-serif",
-        fontSize: "22px",
+        fontSize: "18px",
       },
       md: {
         fontFamily: "Cal Sans, sans-serif",
@@ -40,11 +40,11 @@ const customTheme = {
       },
       lg: {
         fontFamily: "Cal Sans, sans-serif",
-        fontSize: "70px",
+        fontSize: "60px",
       },
       xl: {
         fontFamily: "Cal Sans, sans-serif",
-        fontSize: "100px",
+        fontSize: "70px",
       },
     },
   },

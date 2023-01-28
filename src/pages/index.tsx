@@ -62,7 +62,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
           px="2rem"
           direction="column"
         >
-          <Box textStyle={{ base: "cal.lg", md: "cal.xl" }}>Prettyfolio</Box>
+          <Box textStyle={{ sm: "cal.lg", md: "cal.xl" }}>Prettyfolio</Box>
           <Box
             textStyle={{ base: "raleway.xs", md: "raleway.md" }}
             fontWeight={400}
