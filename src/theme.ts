@@ -3,7 +3,7 @@ import { extendTheme } from "@chakra-ui/react"
 const customTheme = {
   // Font Styles
   textStyles: {
-    font: {
+    raleway: {
       xs: {
         fontFamily: "Raleway, sans-serif",
         fontSize: "12px",
@@ -22,6 +22,28 @@ const customTheme = {
       },
       xl: {
         fontFamily: "Raleway, sans-serif",
+        fontSize: "100px",
+      },
+    },
+    cal: {
+      xs: {
+        fontFamily: "Cal Sans, sans-serif",
+        fontSize: "12px",
+      },
+      sm: {
+        fontFamily: "Cal Sans, sans-serif",
+        fontSize: "12px",
+      },
+      md: {
+        fontFamily: "Cal Sans, sans-serif",
+        fontSize: "40px",
+      },
+      lg: {
+        fontFamily: "Cal Sans, sans-serif",
+        fontSize: "70px",
+      },
+      xl: {
+        fontFamily: "Cal Sans, sans-serif",
         fontSize: "100px",
       },
     },
