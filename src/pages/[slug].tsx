@@ -109,7 +109,6 @@ const SinglePost = ({ post }: { post: any }) => {
 
   return (
     <Layout>
-      <Head></Head>
       <Flex
         direction="column"
         width="100%"
