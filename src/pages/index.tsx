@@ -43,7 +43,12 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ posts }: { posts: Posts[] }) => {
-  console.log(posts)
+  // sorting based on the latest post
+  const data = posts.sort((a, b) => {
+    return (
+      new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
+    )
+  })
   return (
     <Layout>
       <Head>
@@ -74,7 +79,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
             }}
             gap={6}
           >
-            {posts.map((post: any) => (
+            {data.map((post: any) => (
               <GridItem key={post.id}>
                 <NextLink href={`/${post.slug}`}>
                   <Image
