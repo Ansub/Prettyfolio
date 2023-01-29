@@ -5,6 +5,7 @@ import {
   Grid,
   Link,
   Button,
+  chakra,
   Input,
 } from "@chakra-ui/react"
 import { GraphQLClient, gql } from "graphql-request"
@@ -100,10 +101,12 @@ const Home = ({ posts }: { posts: Posts[] }) => {
           px="2rem"
           direction="column"
         >
-          <Box textStyle={{ sm: "cal.lg", md: "cal.xl" }}>Prettyfolio</Box>
+          <Box textStyle={{ sm: "cal.lg", md: "cal.xl" }}>
+            Pretty<chakra.span color="#b10818">folio</chakra.span>
+          </Box>
           <Box
             textStyle={{ base: "raleway.xs", md: "raleway.md" }}
-            fontWeight={400}
+            fontWeight={500}
             paddingBottom="1rem"
             textAlign="center"
           >
@@ -120,7 +123,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
             >
               <Flex>
                 <Button
-                  background={selectedButton === "all" ? "green" : "white"}
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "all" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("all")
                     handleCategory("all")
@@ -129,7 +134,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                   All
                 </Button>
                 <Button
-                  background={selectedButton === "code" ? "green" : "white"}
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "code" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("code")
                     handleCategory("code")
@@ -138,7 +145,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                   Code
                 </Button>
                 <Button
-                  background={selectedButton === "nocode" ? "green" : "white"}
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "nocode" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("nocode")
                     handleCategory("nocode")
@@ -148,7 +157,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 </Button>
 
                 <Button
-                  background={selectedButton === "dark" ? "green" : "white"}
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "dark" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("dark")
                     handleCategory("dark")
@@ -157,7 +168,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                   Dark
                 </Button>
                 <Button
-                  background={selectedButton === "light" ? "green" : "white"}
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "light" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("light")
                     handleCategory("light")
@@ -167,9 +180,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 </Button>
 
                 <Button
-                  background={
-                    selectedButton === "minimalist" ? "green" : "white"
-                  }
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "minimalist" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("minimalist")
                     handleCategory("minimalist")
@@ -179,7 +192,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 </Button>
 
                 <Button
-                  background={selectedButton === "fancy" ? "green" : "white"}
+                  background="white"
+                  _hover={{ background: "white" }}
+                  color={selectedButton === "fancy" ? "#b10818" : "black"}
                   onClick={() => {
                     setSelectedButton("fancy")
                     handleCategory("fancy")

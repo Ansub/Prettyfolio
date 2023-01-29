@@ -21,7 +21,16 @@ const Navbar = () => {
       <Flex alignItems="center" justifyContent="space-between">
         <Logo />
         <Link href="https://twitter.com/prettyfolioo" isExternal={true}>
-          <Button textStyle="cal.sm">Submit Portfolio</Button>
+          <Button
+            background="#b10818"
+            _hover={{
+              background: "#b10818",
+            }}
+            color="white"
+            textStyle="cal.sm"
+          >
+            Submit Portfolio
+          </Button>
         </Link>
       </Flex>
     </Box>
