@@ -7,6 +7,7 @@ interface ImageProps {
   width: number
   className?: string
   alt: string
+  props?: any
 }
 
 export default function Image({
@@ -15,6 +16,7 @@ export default function Image({
   width,
   className,
   alt,
+  props,
 }: ImageProps) {
   const [ready, setReady] = useState(false)
 
@@ -34,6 +36,7 @@ export default function Image({
     >
       <NextImage
         className={className}
+        {...props}
         src={src}
         alt={alt}
         height={height}

@@ -14,7 +14,7 @@ const customTheme = {
       },
       md: {
         fontFamily: "Raleway, sans-serif",
-        fontSize: "20px",
+        fontSize: "17px",
       },
       lg: {
         fontFamily: "Raleway, sans-serif",

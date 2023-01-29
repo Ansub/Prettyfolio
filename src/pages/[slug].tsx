@@ -14,9 +14,10 @@ import {
   SiReact,
   SiTypescript,
   SiWebflow,
+  SiVite,
+  SiFirebase,
 } from "react-icons/si"
 import { GrGraphQl } from "react-icons/gr"
-import Head from "next/head"
 import Moment from "react-moment"
 import NextLink from "next/link"
 
@@ -89,6 +90,8 @@ const iconMap = {
   graphql: { logo: <GrGraphQl />, color: "#db0294", tooltip: "graphql" },
   vuejs: { logo: <FaVuejs />, color: "#3eb27f", tooltip: "vuejs" },
   webflow: { logo: <SiWebflow />, color: "#4d58f2", tooltip: "Webflow" },
+  vite: { logo: <SiVite />, color: "#8720b6", tooltip: "Vite" },
+  firebase: { logo: <SiFirebase />, color: "#facc2c", tooltip: "Firebase" },
 }
 
 function Icon({ icon }: { icon: keyof typeof iconMap }) {
@@ -119,11 +122,15 @@ const SinglePost = ({ post }: { post: any }) => {
       >
         <Box width={{ sm: "90%", md: "80%", lg: "70%", xl: "60%" }}>
           <Box textStyle={"cal.lg"}>{post.title}</Box>
-          <Flex alignItems="center" justifyContent="center">
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            textStyle="raleway.md"
+          >
             <Box marginRight="0.2rem">
               <MdDateRange />
             </Box>{" "}
-            <Box marginRight="0.2rem">Date Added:</Box>
+            <Box marginRight="0.2rem">Added:</Box>
             <Moment format="DD MMMM YYYY">{post.datePublished}</Moment>
           </Flex>
           {/**Icons */}
@@ -136,7 +143,7 @@ const SinglePost = ({ post }: { post: any }) => {
           >
             <Flex justifyContent="start" alignItems="start" width="33.3%">
               <NextLink href="/">
-                <Box fontSize="1.4rem">
+                <Box fontSize="2rem">
                   <IoIosArrowRoundBack />
                 </Box>
               </NextLink>
@@ -159,10 +166,12 @@ const SinglePost = ({ post }: { post: any }) => {
               </Link>
             </Flex>
           </Flex>
-          <Box
+          <Flex
             className="post"
+            alignItems="center"
+            justifyContent="center"
             dangerouslySetInnerHTML={{ __html: post.content.html }}
-          ></Box>
+          ></Flex>
         </Box>
       </Flex>
     </Layout>
