@@ -1,6 +1,14 @@
-import { Flex, Box, GridItem, Grid, Link, Button } from "@chakra-ui/react"
+import {
+  Flex,
+  Box,
+  GridItem,
+  Grid,
+  Link,
+  Button,
+  Input,
+} from "@chakra-ui/react"
 import { GraphQLClient, gql } from "graphql-request"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Posts } from "../types"
 import Layout from "../components/layout"
 import Head from "next/head"
@@ -42,17 +50,42 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ posts }: { posts: Posts[] }) => {
+  const [search, setSearch] = useState("")
+  const [selectedButton, setSelectedButton] = useState("all")
   // sorting based on the latest post
   const data = posts.sort((a, b) => {
     return (
       new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
     )
   })
+  const [filteredData, setFilteredData] = useState(data)
 
-  const [selectedCategory, setSelectedCategory] = useState("all")
-  const filteredData = data.filter((post: any) =>
-    post.category?.name.includes(selectedCategory)
-  )
+  const handleSearch = (e: any) => {
+    setSearch(e.target.value)
+    // filter the data array based on the input value
+    const filteredSearchData = posts.filter((post) =>
+      post.title.toLowerCase().includes(search.toLowerCase())
+    )
+    setFilteredData(filteredSearchData)
+  }
+
+  const handleCategory = (category: string) => {
+    if (category === "all") {
+      setFilteredData(data)
+    } else {
+      const filteredCategoryData = data.filter((post: any) =>
+        post.category?.name.includes(category)
+      )
+      setFilteredData(filteredCategoryData)
+    }
+  }
+
+  // show all posts when search input is cleared
+  useEffect(() => {
+    if (search === "") {
+      setFilteredData(data)
+    }
+  }, [search])
 
   return (
     <Layout>
@@ -77,52 +110,93 @@ const Home = ({ posts }: { posts: Posts[] }) => {
             Discover the best portfolios, curated just for you.
           </Box>
           <Flex>
-            <Flex gap="8" marginBottom="1rem">
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("all")}
-              >
-                All
-              </Button>
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("code")}
-              >
-                Code
-              </Button>
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("nocode")}
-              >
-                No Code
-              </Button>
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              gap={{ sm: "2", md: "8" }}
+              overflow="scroll"
+              alignItems="center"
+              justifyContent="center"
+              marginBottom="1rem"
+            >
+              <Flex>
+                <Button
+                  background={selectedButton === "all" ? "green" : "white"}
+                  onClick={() => {
+                    setSelectedButton("all")
+                    handleCategory("all")
+                  }}
+                >
+                  All
+                </Button>
+                <Button
+                  background={selectedButton === "code" ? "green" : "white"}
+                  onClick={() => {
+                    setSelectedButton("code")
+                    handleCategory("code")
+                  }}
+                >
+                  Code
+                </Button>
+                <Button
+                  background={selectedButton === "nocode" ? "green" : "white"}
+                  onClick={() => {
+                    setSelectedButton("nocode")
+                    handleCategory("nocode")
+                  }}
+                >
+                  No Code
+                </Button>
 
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("dark")}
-              >
-                Dark
-              </Button>
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("light")}
-              >
-                Light
-              </Button>
+                <Button
+                  background={selectedButton === "dark" ? "green" : "white"}
+                  onClick={() => {
+                    setSelectedButton("dark")
+                    handleCategory("dark")
+                  }}
+                >
+                  Dark
+                </Button>
+                <Button
+                  background={selectedButton === "light" ? "green" : "white"}
+                  onClick={() => {
+                    setSelectedButton("light")
+                    handleCategory("light")
+                  }}
+                >
+                  Light
+                </Button>
 
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("minimalist")}
-              >
-                Minimalist
-              </Button>
+                <Button
+                  background={
+                    selectedButton === "minimalist" ? "green" : "white"
+                  }
+                  onClick={() => {
+                    setSelectedButton("minimalist")
+                    handleCategory("minimalist")
+                  }}
+                >
+                  Minimalist
+                </Button>
 
-              <Button
-                variantColor="teal"
-                onClick={() => setSelectedCategory("fancy")}
-              >
-                Fancy
-              </Button>
+                <Button
+                  background={selectedButton === "fancy" ? "green" : "white"}
+                  onClick={() => {
+                    setSelectedButton("fancy")
+                    handleCategory("fancy")
+                  }}
+                >
+                  Fancy
+                </Button>
+              </Flex>
+              <Flex>
+                <Input
+                  type="name"
+                  placeholder="search name"
+                  maxW="250px"
+                  value={search}
+                  onChange={handleSearch}
+                />
+              </Flex>
             </Flex>
           </Flex>
           <Grid
