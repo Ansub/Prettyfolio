@@ -9,7 +9,6 @@ export interface Posts {
   featuredImage: {
     url: string
   }
-  tag: string
   url: string
   category: {
     name: string[]

@@ -40,7 +40,7 @@ const customTheme = {
       },
       lg: {
         fontFamily: "Cal Sans, sans-serif",
-        fontSize: "60px",
+        fontSize: "50px",
       },
       xl: {
         fontFamily: "Cal Sans, sans-serif",
@@ -56,14 +56,6 @@ const customTheme = {
       red: "#C3073F",
       white: "#eaeaea",
     },
-  },
-
-  // Container
-  container: {
-    sm: "320px",
-    md: "768px",
-    lg: "960px",
-    xl: "1200px",
   },
 }
 

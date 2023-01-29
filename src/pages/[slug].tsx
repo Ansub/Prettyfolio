@@ -16,6 +16,8 @@ import {
   SiWebflow,
   SiVite,
   SiFirebase,
+  SiWebgl,
+  SiWix,
 } from "react-icons/si"
 import { GrGraphQl } from "react-icons/gr"
 import Moment from "react-moment"
@@ -36,7 +38,6 @@ const QUERY = gql`
       featuredImage {
         url
       }
-      tag
       url
       techstack
     }
@@ -92,6 +93,8 @@ const iconMap = {
   webflow: { logo: <SiWebflow />, color: "#4d58f2", tooltip: "Webflow" },
   vite: { logo: <SiVite />, color: "#8720b6", tooltip: "Vite" },
   firebase: { logo: <SiFirebase />, color: "#facc2c", tooltip: "Firebase" },
+  webgl: { logo: <SiWebgl />, color: "#961a1f", tooltip: "WebGL" },
+  wix: { logo: <SiWix />, color: "#010101", tooltip: "Wix" },
 }
 
 function Icon({ icon }: { icon: keyof typeof iconMap }) {
@@ -116,12 +119,13 @@ const SinglePost = ({ post }: { post: any }) => {
         direction="column"
         width="100%"
         marginTop="2rem"
+        paddingX="1rem"
         alignItems="center"
         justifyContent="center"
         textAlign="center"
       >
         <Box width={{ sm: "90%", md: "80%", lg: "70%", xl: "60%" }}>
-          <Box textStyle={"cal.lg"}>{post.title}</Box>
+          <Box textStyle="cal.lg">{post.title}</Box>
           <Flex
             alignItems="center"
             justifyContent="center"

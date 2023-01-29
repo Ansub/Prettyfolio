@@ -33,7 +33,6 @@ const QUERY = gql`
       featuredImage {
         url
       }
-      tag
       url
       category
     }
@@ -112,106 +111,103 @@ const Home = ({ posts }: { posts: Posts[] }) => {
           >
             Discover the best portfolios, curated just for you.
           </Box>
-          <Flex>
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              gap={{ sm: "2", md: "8" }}
-              overflow="scroll"
-              alignItems="center"
-              justifyContent="center"
-              marginBottom="1rem"
-            >
-              <Flex>
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "all" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("all")
-                    handleCategory("all")
-                  }}
-                >
-                  All
-                </Button>
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "code" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("code")
-                    handleCategory("code")
-                  }}
-                >
-                  Code
-                </Button>
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "nocode" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("nocode")
-                    handleCategory("nocode")
-                  }}
-                >
-                  No Code
-                </Button>
 
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "dark" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("dark")
-                    handleCategory("dark")
-                  }}
-                >
-                  Dark
-                </Button>
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "light" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("light")
-                    handleCategory("light")
-                  }}
-                >
-                  Light
-                </Button>
+          <Flex direction={{ base: "column", md: "row" }} marginBottom="2rem">
+            <Flex width="90vw" alignItems="start" justifyContent="start">
+              <Button
+                overflowX="hidden"
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "all" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("all")
+                  handleCategory("all")
+                }}
+              >
+                All
+              </Button>
+              <Button
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "code" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("code")
+                  handleCategory("code")
+                }}
+              >
+                Code
+              </Button>
+              <Button
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "nocode" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("nocode")
+                  handleCategory("nocode")
+                }}
+              >
+                No Code
+              </Button>
 
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "minimalist" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("minimalist")
-                    handleCategory("minimalist")
-                  }}
-                >
-                  Minimalist
-                </Button>
+              <Button
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "dark" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("dark")
+                  handleCategory("dark")
+                }}
+              >
+                Dark
+              </Button>
+              <Button
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "light" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("light")
+                  handleCategory("light")
+                }}
+              >
+                Light
+              </Button>
 
-                <Button
-                  background="white"
-                  _hover={{ background: "white" }}
-                  color={selectedButton === "fancy" ? "#b10818" : "black"}
-                  onClick={() => {
-                    setSelectedButton("fancy")
-                    handleCategory("fancy")
-                  }}
-                >
-                  Fancy
-                </Button>
-              </Flex>
-              <Flex>
-                <Input
-                  type="name"
-                  placeholder="search name"
-                  maxW="250px"
-                  value={search}
-                  onChange={handleSearch}
-                />
-              </Flex>
+              <Button
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "minimalist" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("minimalist")
+                  handleCategory("minimalist")
+                }}
+              >
+                Minimalist
+              </Button>
+
+              <Button
+                background="white"
+                _hover={{ background: "white" }}
+                color={selectedButton === "fancy" ? "#b10818" : "black"}
+                onClick={() => {
+                  setSelectedButton("fancy")
+                  handleCategory("fancy")
+                }}
+              >
+                Fancy
+              </Button>
+            </Flex>
+            <Flex>
+              <Input
+                type="name"
+                placeholder="Search by name..."
+                textStyle="raleway.xs"
+                fontSize="14px"
+                fontWeight="500"
+                focusBorderColor="#b10818"
+                maxW="250px"
+                value={search}
+                onChange={handleSearch}
+              />
             </Flex>
           </Flex>
           <Grid
