@@ -5,12 +5,26 @@ import { IoIosArrowRoundBack } from "react-icons/io"
 import Moment from "react-moment"
 import NextLink from "next/link"
 import { iconMap } from "../data/icons"
+import { motion } from "framer-motion"
 
 function Icon({ icon }: { icon: keyof typeof iconMap }) {
   const { logo, color, tooltip } = iconMap[icon] || {}
   return (
-    <Tooltip label={tooltip} aria-label={tooltip}>
-      <Box fontSize="1.4rem" marginRight="0.5rem" textColor={color}>
+    <Tooltip
+      label={tooltip}
+      aria-label={tooltip}
+      background="transparent"
+      boxShadow="none"
+      color="#212121"
+    >
+      <Box
+        // add animation to icon
+        as={motion.div}
+        whileHover={{ scale: 1.2 }}
+        fontSize="1.4rem"
+        marginRight="0.5rem"
+        textColor={color}
+      >
         {logo}
       </Box>
     </Tooltip>
@@ -62,7 +76,24 @@ const SinglePostComponent = ({ post }: { post: any }) => {
         >
           <Flex justifyContent="start" alignItems="start" width="33.3%">
             <NextLink href="/">
-              <Box fontSize="2rem">
+              <Box
+                as={motion.div}
+                // rotate icon 360 degs
+                whileHover={{
+                  rotate: "360deg",
+                  scale: 1.2,
+                  transition: {
+                    duration: 0.3,
+                    type: "spring",
+                  },
+                }}
+                fontSize="2rem"
+                transition="all 0.3s ease-in-out"
+                rotate="180deg"
+                _hover={{
+                  color: "theme.orange",
+                }}
+              >
                 <IoIosArrowRoundBack />
               </Box>
             </NextLink>
@@ -79,7 +110,23 @@ const SinglePostComponent = ({ post }: { post: any }) => {
           </Flex>
           <Flex width="33.3%" justifyContent="end" alignItems="end">
             <Link isExternal href={post.url}>
-              <Box fontSize="1.4rem">
+              <Box
+                as={motion.div}
+                // rotate icon 360 degs
+                whileHover={{
+                  rotate: "360deg",
+                  scale: 1.2,
+                  transition: {
+                    duration: 0.3,
+                    type: "spring",
+                  },
+                }}
+                _hover={{
+                  color: "theme.orange",
+                }}
+                fontSize="1.4rem"
+                transition="all 0.3s ease-in-out"
+              >
                 <TbExternalLink />
               </Box>
             </Link>

@@ -8,7 +8,10 @@ import {
   Button,
   chakra,
   Input,
+  InputGroup,
+  InputLeftElement,
 } from "@chakra-ui/react"
+import { SearchIcon } from "@chakra-ui/icons"
 import NextLink from "next/link"
 import { TbExternalLink } from "react-icons/tb"
 import { motion } from "framer-motion"
@@ -52,7 +55,7 @@ const CategoriesSection = ({
           overflowX="hidden"
           background="white"
           marginRight="1rem"
-          _hover={{ background: "white" }}
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "all" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("all")
@@ -64,7 +67,7 @@ const CategoriesSection = ({
         <Button
           background="white"
           marginRight={{ base: "1.8rem", md: "1rem" }}
-          _hover={{ background: "white" }}
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "code" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("code")
@@ -76,7 +79,7 @@ const CategoriesSection = ({
         <Button
           background="white"
           marginRight={{ base: "1.5rem", md: "1rem" }}
-          _hover={{ background: "white" }}
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "nocode" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("nocode")
@@ -88,8 +91,8 @@ const CategoriesSection = ({
 
         <Button
           background="white"
-          marginRight="1rem"
-          _hover={{ background: "white" }}
+          marginRight="0.8rem"
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "dark" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("dark")
@@ -100,8 +103,8 @@ const CategoriesSection = ({
         </Button>
         <Button
           background="white"
-          marginRight={{ base: "1.5rem", md: "1rem" }}
-          _hover={{ background: "white" }}
+          marginRight={{ base: "1.8rem", md: "1rem" }}
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "light" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("light")
@@ -114,7 +117,7 @@ const CategoriesSection = ({
         <Button
           background="white"
           marginRight={{ base: "2rem", md: "1rem" }}
-          _hover={{ background: "white" }}
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "minimalist" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("minimalist")
@@ -127,7 +130,7 @@ const CategoriesSection = ({
         <Button
           background="white"
           marginRight="1.5rem"
-          _hover={{ background: "white" }}
+          _hover={{ background: "white", color: "theme.orange" }}
           color={selectedButton === "fancy" ? "theme.orange" : "black"}
           onClick={() => {
             setSelectedButton("fancy")
@@ -138,20 +141,24 @@ const CategoriesSection = ({
         </Button>
       </Flex>
       <Flex marginTop={{ base: "1rem", md: "0rem" }}>
-        <Input
-          type="name"
-          placeholder="search by name"
-          textStyle="raleway.xs"
-          fontSize="14px"
-          fontWeight="500"
-          focusBorderColor="theme.orange"
-          maxW={{ base: "100%", md: "300px" }}
-          value={search}
-          onChange={handleSearch}
-          variant="flushed"
-          borderBottom="1px solid"
-          borderColor="theme.orange"
-        />
+        <InputGroup color="gray.500">
+          <InputLeftElement pointerEvents="none">
+            <SearchIcon />
+          </InputLeftElement>
+          <Input
+            type="name"
+            placeholder="search by name"
+            textStyle="raleway.xs"
+            fontSize="14px"
+            fontWeight="500"
+            focusBorderColor="theme.orange"
+            maxW={{ base: "100%", md: "300px" }}
+            value={search}
+            onChange={handleSearch}
+            variant="flushed"
+            borderBottom="0px"
+          />
+        </InputGroup>
       </Flex>
     </Flex>
   )
