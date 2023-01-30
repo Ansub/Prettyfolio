@@ -11,9 +11,5 @@ body {
 
   border-radius: 0.8rem;
   transition: 0.5s ease;
-}
-
-.post img:hover {
-  box-shadow: 10px 10px 90px -54px rgba(0, 0, 0, 0.82);
-  transform: scale(1.02);
+  border: 1px solid #eaeaea;
 }

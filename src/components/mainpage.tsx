@@ -173,15 +173,25 @@ const PostGrid = ({ filteredData }: any) => {
             <Box
               as={motion.div}
               whileHover={{
-                y: -10,
+                scale: 1.02,
                 transition: {
                   duration: 0.3,
                   type: "Spring",
                   stiffness: 100,
                 },
+
                 // add a shadow
                 boxShadow: "10px 10px 90px -54px rgb(36, 36, 36)",
               }}
+              whileTap={{
+                scale: 0.9,
+                transition: {
+                  duration: 0.3,
+                  type: "Spring",
+                  stiffness: 100,
+                },
+              }}
+              border="1px solid #e2e8f0"
             >
               <Image
                 src={post.featuredImage.url}
