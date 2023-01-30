@@ -101,7 +101,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
           direction="column"
         >
           <Box textStyle={{ sm: "cal.lg", md: "cal.xl" }}>
-            Pretty<chakra.span color="#b10818">folio</chakra.span>
+            Pretty<chakra.span color="theme.orange">folio</chakra.span>
           </Box>
           <Box
             textStyle={{ base: "raleway.xs", md: "raleway.md" }}
@@ -113,10 +113,16 @@ const Home = ({ posts }: { posts: Posts[] }) => {
           </Box>
 
           <Flex direction={{ base: "column", md: "row" }} marginBottom="2rem">
-            <Flex width="90vw" alignItems="start" justifyContent="start">
+            <Flex
+              overflowX="scroll"
+              width="80vw"
+              alignItems="start"
+              justifyContent="start"
+            >
               <Button
                 overflowX="hidden"
                 background="white"
+                marginRight="1rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "all" ? "#b10818" : "black"}
                 onClick={() => {
@@ -128,6 +134,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
               </Button>
               <Button
                 background="white"
+                marginRight="1.8rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "code" ? "#b10818" : "black"}
                 onClick={() => {
@@ -139,6 +146,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
               </Button>
               <Button
                 background="white"
+                marginRight="1.5rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "nocode" ? "#b10818" : "black"}
                 onClick={() => {
@@ -151,6 +159,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
 
               <Button
                 background="white"
+                marginRight="1rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "dark" ? "#b10818" : "black"}
                 onClick={() => {
@@ -162,6 +171,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
               </Button>
               <Button
                 background="white"
+                marginRight="1.5rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "light" ? "#b10818" : "black"}
                 onClick={() => {
@@ -174,6 +184,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
 
               <Button
                 background="white"
+                marginRight="2rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "minimalist" ? "#b10818" : "black"}
                 onClick={() => {
@@ -186,6 +197,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
 
               <Button
                 background="white"
+                marginRight="1.5rem"
                 _hover={{ background: "white" }}
                 color={selectedButton === "fancy" ? "#b10818" : "black"}
                 onClick={() => {
@@ -196,7 +208,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 Fancy
               </Button>
             </Flex>
-            <Flex>
+            <Flex alignItems="center" justifyContent="center" marginTop="1rem">
               <Input
                 type="name"
                 placeholder="Search by name..."
@@ -204,7 +216,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 fontSize="14px"
                 fontWeight="500"
                 focusBorderColor="#b10818"
-                maxW="250px"
+                maxW={{ base: "100%", md: "250px" }}
                 value={search}
                 onChange={handleSearch}
               />
@@ -232,7 +244,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                         stiffness: 100,
                       },
                       // add a shadow
-                      boxShadow: "10px 10px 90px -54px rgb(0, 0, 0)",
+                      boxShadow: "10px 10px 90px -54px rgb(36, 36, 36)",
                     }}
                   >
                     <Image

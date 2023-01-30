@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <NextLink href="/">
       <Image
-        src="/images/prettyfolioLogo.png"
+        src="/images/prettyfolio.svg"
         width={30}
         height={30}
         alt="prettyfolio logo"
@@ -17,17 +17,20 @@ const Logo = () => {
 
 const Navbar = () => {
   return (
-    <Box padding="1rem" paddingX="2rem">
+    <Box padding="1rem" paddingX={{ md: "2rem" }}>
       <Flex alignItems="center" justifyContent="space-between">
         <Logo />
         <Link href="https://twitter.com/prettyfolioo" isExternal={true}>
           <Button
-            background="#b10818"
+            background="theme.orange"
             _hover={{
-              background: "#b10818",
+              background: "theme.orange",
             }}
+            paddingX="0.5rem"
+            paddingY="0.2rem"
             color="white"
             textStyle="cal.sm"
+            fontSize={{ base: "0.9rem", md: "1.1rem" }}
           >
             Submit Portfolio
           </Button>

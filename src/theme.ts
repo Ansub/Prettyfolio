@@ -55,6 +55,7 @@ const customTheme = {
       bg: "#1a1a1d",
       red: "#C3073F",
       white: "#eaeaea",
+      orange: "#f43e36",
     },
   },
 }
