@@ -29,11 +29,22 @@ const SinglePostComponent = ({ post }: { post: any }) => {
       textAlign="center"
     >
       <Box width={{ sm: "90%", md: "80%", lg: "70%", xl: "60%" }}>
-        <Box textStyle="cal.lg">{post.title}</Box>
+        <Box
+          transition="all 0.3s ease-in-out"
+          _hover={{
+            color: "theme.orange",
+            cursor: "pointer",
+          }}
+          textStyle="cal.lg"
+        >
+          {post.title}
+        </Box>
         <Flex
           alignItems="center"
           justifyContent="center"
           textStyle="raleway.md"
+          fontWeight="500"
+          fontSize="0.9rem"
         >
           <Box marginRight="0.2rem">
             <MdDateRange />
