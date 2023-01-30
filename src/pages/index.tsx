@@ -134,7 +134,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
               </Button>
               <Button
                 background="white"
-                marginRight="1.8rem"
+                marginRight={{ base: "1.8rem", md: "1rem" }}
                 _hover={{ background: "white" }}
                 color={selectedButton === "code" ? "theme.orange" : "black"}
                 onClick={() => {
@@ -146,7 +146,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
               </Button>
               <Button
                 background="white"
-                marginRight="1.5rem"
+                marginRight={{ base: "1.5rem", md: "1rem" }}
                 _hover={{ background: "white" }}
                 color={selectedButton === "nocode" ? "theme.orange" : "black"}
                 onClick={() => {
@@ -171,7 +171,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
               </Button>
               <Button
                 background="white"
-                marginRight="1.5rem"
+                marginRight={{ base: "1.5rem", md: "1rem" }}
                 _hover={{ background: "white" }}
                 color={selectedButton === "light" ? "theme.orange" : "black"}
                 onClick={() => {
@@ -184,7 +184,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
 
               <Button
                 background="white"
-                marginRight="2rem"
+                marginRight={{ base: "2rem", md: "1rem" }}
                 _hover={{ background: "white" }}
                 color={
                   selectedButton === "minimalist" ? "theme.orange" : "black"
@@ -213,14 +213,17 @@ const Home = ({ posts }: { posts: Posts[] }) => {
             <Flex alignItems="center" justifyContent="center" marginTop="1rem">
               <Input
                 type="name"
-                placeholder="Search by name..."
+                placeholder="search by name"
                 textStyle="raleway.xs"
                 fontSize="14px"
                 fontWeight="500"
-                focusBorderColor="#b10818"
-                maxW={{ base: "100%", md: "250px" }}
+                focusBorderColor="theme.orange"
+                maxW={{ base: "100%", md: "300px" }}
                 value={search}
                 onChange={handleSearch}
+                variant="flushed"
+                borderBottom="1px solid"
+                borderColor="theme.orange"
               />
             </Flex>
           </Flex>

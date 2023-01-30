@@ -12,7 +12,7 @@ import {
 import { GrGraphQl } from "react-icons/gr"
 import { FaVuejs } from "react-icons/fa"
 import { FiFigma } from "react-icons/fi"
-import { TbBrandNextjs, TbExternalLink } from "react-icons/tb"
+import { TbBrandNextjs } from "react-icons/tb"
 
 export const iconMap = {
   figma: { logo: <FiFigma />, color: "#eb4667", tooltip: "Figma" },
