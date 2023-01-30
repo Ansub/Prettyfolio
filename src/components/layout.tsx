@@ -4,7 +4,11 @@ import Theme from "../theme"
 import "cal-sans"
 import Footer from "./reusable/footer"
 
-const Layout = ({ children }) => {
+type LayoutProps = {
+  children: React.ReactNode
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <ChakraProvider theme={Theme}>
       <Navbar />
