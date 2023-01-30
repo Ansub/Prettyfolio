@@ -124,7 +124,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="1rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "all" ? "#b10818" : "black"}
+                color={selectedButton === "all" ? "theme.orange" : "black"}
                 onClick={() => {
                   setSelectedButton("all")
                   handleCategory("all")
@@ -136,7 +136,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="1.8rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "code" ? "#b10818" : "black"}
+                color={selectedButton === "code" ? "theme.orange" : "black"}
                 onClick={() => {
                   setSelectedButton("code")
                   handleCategory("code")
@@ -148,7 +148,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="1.5rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "nocode" ? "#b10818" : "black"}
+                color={selectedButton === "nocode" ? "theme.orange" : "black"}
                 onClick={() => {
                   setSelectedButton("nocode")
                   handleCategory("nocode")
@@ -161,7 +161,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="1rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "dark" ? "#b10818" : "black"}
+                color={selectedButton === "dark" ? "theme.orange" : "black"}
                 onClick={() => {
                   setSelectedButton("dark")
                   handleCategory("dark")
@@ -173,7 +173,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="1.5rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "light" ? "#b10818" : "black"}
+                color={selectedButton === "light" ? "theme.orange" : "black"}
                 onClick={() => {
                   setSelectedButton("light")
                   handleCategory("light")
@@ -186,7 +186,9 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="2rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "minimalist" ? "#b10818" : "black"}
+                color={
+                  selectedButton === "minimalist" ? "theme.orange" : "black"
+                }
                 onClick={() => {
                   setSelectedButton("minimalist")
                   handleCategory("minimalist")
@@ -199,7 +201,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
                 background="white"
                 marginRight="1.5rem"
                 _hover={{ background: "white" }}
-                color={selectedButton === "fancy" ? "#b10818" : "black"}
+                color={selectedButton === "fancy" ? "theme.orange" : "black"}
                 onClick={() => {
                   setSelectedButton("fancy")
                   handleCategory("fancy")
