@@ -26,7 +26,7 @@ const QUERY = gql`
 
 const SLUGLIST = gql`
   {
-    posts {
+    posts(first: 500) {
       slug
     }
   }

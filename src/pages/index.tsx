@@ -12,7 +12,7 @@ const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 // query
 const QUERY = gql`
   {
-    posts {
+    posts (first: 500) {
       datePublished
       id
       slug
