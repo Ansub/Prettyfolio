@@ -12,7 +12,7 @@ const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 // query
 const QUERY = gql`
   {
-    posts (first: 500) {
+    posts(first: 500) {
       datePublished
       id
       slug
@@ -33,7 +33,6 @@ export const getStaticProps = async () => {
     props: {
       posts,
     },
-    revalidate: 10,
   }
 }
 
