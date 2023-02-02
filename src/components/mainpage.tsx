@@ -21,7 +21,7 @@ import { Posts } from "../types"
 const HeadingSection = () => {
   return (
     <Box textAlign="center">
-      <Box textStyle={{ sm: "cal.lg", md: "cal.xl" }}>
+      <Box textStyle={{ sm: "cal.lg", md: "cal.lg" }}>
         Pretty<chakra.span color="theme.orange">folio</chakra.span>
       </Box>
       <Box
