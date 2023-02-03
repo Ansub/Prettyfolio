@@ -8,6 +8,7 @@ interface ImageProps {
   className?: string
   alt: string
   props?: any
+  loading: "eager" | "lazy"
 }
 
 export default function Image({
@@ -17,6 +18,7 @@ export default function Image({
   className,
   alt,
   props,
+  loading,
 }: ImageProps) {
   const [ready, setReady] = useState(false)
 
@@ -41,7 +43,9 @@ export default function Image({
         alt={alt}
         height={height}
         width={width}
+        loading={loading}
         onLoad={handleLoad}
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
     </div>
   )
