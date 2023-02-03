@@ -202,8 +202,8 @@ const PostGrid = ({ filteredData }: any) => {
             >
               <Image
                 src={post.featuredImage.url}
-                width={700}
-                height={700}
+                width={1920}
+                height={1080}
                 alt={post.title}
                 props={{
                   hover: "cursor-pointer",
