@@ -1,20 +1,14 @@
 import PropTypes from "prop-types"
 
-const SITE_URL = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || "localhost:3000"
-
 const defaultTitle = "Prettyfolio"
 const defaultDescription = "Discover the best portfolios, curated just for you."
-const defaultImagePath = "/images/thumbnail.jpg"
+const defaultImagePath = "https://prettyfolio.com/images/thumbnail.jpg"
 
 const SEO = ({
   title = defaultTitle,
   description = defaultDescription,
   imagePath = defaultImagePath,
 }) => {
-  const currentImagePath = imagePath.startsWith("http")
-    ? imagePath
-    : SITE_URL + imagePath
-
   return (
     <>
       <meta charSet="utf-8" />
@@ -27,7 +21,7 @@ const SEO = ({
       <meta name="description" content={description} key="desc" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={currentImagePath} />
+      <meta property="og:image" content={imagePath} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />

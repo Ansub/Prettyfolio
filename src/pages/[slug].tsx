@@ -54,6 +54,7 @@ export const getStaticProps = async ({ params }: any) => {
 }
 
 const SinglePost = ({ post }: { post: any }) => {
+  console.log(post.featuredImage.url)
   useEffect(() => {
     document.title = `${post.title} - Prettyfolio`
   }, [post])
