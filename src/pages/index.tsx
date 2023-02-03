@@ -41,8 +41,8 @@ const Home = ({ posts }: { posts: Posts[] }) => {
     <Layout>
       <SEO
         title="Prettyfolio"
-        description="A portfolio template for developers"
-        imagePath="images/prettyfolio.png"
+        description="Discover the best portfolios, curated just for you."
+        imagePath="images/thumbnail.jpg"
       />
       <Head>
         <title>Prettyfolio</title>
