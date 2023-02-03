@@ -1,10 +1,10 @@
 import { GraphQLClient, gql } from "graphql-request"
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Posts } from "../types"
 import Layout from "../components/layout"
 import Head from "next/head"
-import Image from "../components/reusable/image"
 import MainPage from "../components/mainpage"
+import SEO from "../components/seo"
 
 // calling the API
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
@@ -39,6 +39,11 @@ export const getStaticProps = async () => {
 const Home = ({ posts }: { posts: Posts[] }) => {
   return (
     <Layout>
+      <SEO
+        title="Prettyfolio"
+        description="A portfolio template for developers"
+        imagePath="images/prettyfolio.png"
+      />
       <Head>
         <title>Prettyfolio</title>
       </Head>

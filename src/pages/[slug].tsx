@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { GraphQLClient, gql } from "graphql-request"
 import Layout from "../components/layout"
 import SinglePostComponent from "../components/singlePageComponent"
+import SEO from "../components/seo"
 
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 
@@ -59,6 +60,10 @@ const SinglePost = ({ post }: { post: any }) => {
 
   return (
     <Layout>
+      <SEO
+        title={`${post.title} - Prettyfolio`}
+        imagePath={post.featuredImage.url}
+      />
       <SinglePostComponent post={post} />
     </Layout>
   )
