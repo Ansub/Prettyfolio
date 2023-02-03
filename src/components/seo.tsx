@@ -1,6 +1,8 @@
+import { Box } from "@chakra-ui/react"
+
 const SEO = ({ title, image, description, link }: any) => {
   return (
-    <>
+    <Box>
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
@@ -86,7 +88,7 @@ const SEO = ({ title, image, description, link }: any) => {
         href="images/favicon/safari-pinned-tab.svg"
         color="#1a1a1a"
       />
-    </>
+    </Box>
   )
 }
 
