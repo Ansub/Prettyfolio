@@ -42,7 +42,8 @@ const Home = ({ posts }: { posts: Posts[] }) => {
       <SEO
         title="Prettyfolio"
         description="Discover the best portfolios, curated just for you."
-        imagePath="images/thumbnail.jpg"
+        image="https://prettyfolio.com/images/thumbnail.jpg"
+        link="https://prettyfolio.com"
       />
       <Head>
         <title>Prettyfolio</title>

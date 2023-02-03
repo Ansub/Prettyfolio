@@ -1,14 +1,4 @@
-import PropTypes from "prop-types"
-
-const defaultTitle = "Prettyfolio"
-const defaultDescription = "Discover the best portfolios, curated just for you."
-const defaultImagePath = "https://prettyfolio.com/images/thumbnail.jpg"
-
-const SEO = ({
-  title = defaultTitle,
-  description = defaultDescription,
-  imagePath = defaultImagePath,
-}) => {
+const SEO = ({ title, image, description, link }: any) => {
   return (
     <>
       <meta charSet="utf-8" />
@@ -17,15 +7,21 @@ const SEO = ({
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
       />
-      <title>{title}</title>
-      <meta name="description" content={description} key="desc" />
+      {/* Facebook Meta Property */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={link} />
       <meta property="og:title" content={title} />
+      <meta property="og:image" content={image} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={imagePath} />
+
+      {/* Twitter Card Property */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={image} />
+      <meta property="twitter:creator" content={"@justansub"} />
       <meta property="twitter:title" content={title} />
+      <meta property="twitter:url" content={link} />
       <meta property="twitter:description" content={description} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="theme-color" content="#1a1a1a" />
+
       <link rel="icon" href="/favicon.ico" />
       <link
         rel="manifest"
@@ -92,12 +88,6 @@ const SEO = ({
       />
     </>
   )
-}
-
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  imagePath: PropTypes.string,
 }
 
 export default SEO

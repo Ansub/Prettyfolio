@@ -64,7 +64,8 @@ const SinglePost = ({ post }: { post: any }) => {
       <SEO
         title={`${post.title} - Prettyfolio`}
         description="Discover the best portfolios, curated just for you."
-        imagePath={post.featuredImage.url}
+        link={`https://prettyfolio.com/${post.slug}`}
+        image={post.featuredImage.url}
       />
       <SinglePostComponent post={post} />
     </Layout>
