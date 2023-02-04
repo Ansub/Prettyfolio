@@ -21,7 +21,7 @@ import { Posts } from "../types"
 const HeadingSection = () => {
   return (
     <Box textAlign="center">
-      <Box textStyle={{ sm: "cal.lg", md: "cal.xl" }}>
+      <Box textStyle={{ base: "cal.lg", md: "cal.xl" }}>
         Pretty<chakra.span color="theme.orange">folio</chakra.span>
       </Box>
       <Box
@@ -35,7 +35,32 @@ const HeadingSection = () => {
     </Box>
   )
 }
-
+const FilterButton = ({
+  selectedButton,
+  setSelectedButton,
+  handleCategory,
+  title,
+}: any) => (
+  <Button
+    background="white"
+    marginX={{ base: "0.3rem", md: "0rem" }}
+    padding={{ base: "1rem 1.5rem", md: "1rem 1rem" }}
+    textStyle="cal.xs"
+    fontSize={{ base: "0.8rem", md: "1rem" }}
+    _hover={{ background: "white", color: "theme.orange" }}
+    color={
+      selectedButton === title.replace(/ /g, "").toLowerCase()
+        ? "theme.orange"
+        : "black"
+    }
+    onClick={() => {
+      setSelectedButton(title.replace(/ /g, "").toLowerCase())
+      handleCategory(title.replace(/ /g, "").toLowerCase())
+    }}
+  >
+    {title}
+  </Button>
+)
 const CategoriesSection = ({
   handleCategory,
   selectedButton,
@@ -48,97 +73,62 @@ const CategoriesSection = ({
       marginBottom="2rem"
       justifyContent="space-between"
       direction={{ base: "column", md: "row" }}
-      width={{ base: "85vw", md: "100%" }}
+      width={{ base: "90vw", md: "100%" }}
     >
-      <Flex overflowX="scroll" alignItems="start" justifyContent="center">
-        <Button
-          overflowX="hidden"
-          background="white"
-          marginRight="1rem"
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "all" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("all")
-            handleCategory("all")
-          }}
-        >
-          All
-        </Button>
-        <Button
-          background="white"
-          marginRight={{ base: "1.8rem", md: "1rem" }}
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "code" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("code")
-            handleCategory("code")
-          }}
-        >
-          Code
-        </Button>
-        <Button
-          background="white"
-          marginRight={{ base: "1.5rem", md: "1rem" }}
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "nocode" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("nocode")
-            handleCategory("nocode")
-          }}
-        >
-          No Code
-        </Button>
-
-        <Button
-          background="white"
-          marginRight="0.8rem"
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "dark" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("dark")
-            handleCategory("dark")
-          }}
-        >
-          Dark
-        </Button>
-        <Button
-          background="white"
-          marginRight={{ base: "1.8rem", md: "1rem" }}
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "light" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("light")
-            handleCategory("light")
-          }}
-        >
-          Light
-        </Button>
-
-        <Button
-          background="white"
-          marginRight={{ base: "2rem", md: "1rem" }}
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "minimalist" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("minimalist")
-            handleCategory("minimalist")
-          }}
-        >
-          Minimalist
-        </Button>
-
-        <Button
-          background="white"
-          marginRight="1.5rem"
-          _hover={{ background: "white", color: "theme.orange" }}
-          color={selectedButton === "fancy" ? "theme.orange" : "black"}
-          onClick={() => {
-            setSelectedButton("fancy")
-            handleCategory("fancy")
-          }}
-        >
-          Fancy
-        </Button>
+      <Flex
+        overflowX="auto"
+        sx={{
+          "::-webkit-scrollbar": {
+            display: "none",
+          },
+        }}
+        whiteSpace="nowrap"
+        scrollBehavior="smooth"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="All"
+        />
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="Code"
+        />
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="No Code"
+        />
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="Dark"
+        />
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="Light"
+        />
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="Minimalist"
+        />
+        <FilterButton
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton}
+          handleCategory={handleCategory}
+          title="Fancy"
+        />
       </Flex>
       <Flex marginTop={{ base: "1rem", md: "0rem" }}>
         <InputGroup color="gray.500">
