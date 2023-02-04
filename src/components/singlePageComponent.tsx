@@ -109,7 +109,7 @@ const SinglePostComponent = ({ post }: { post: any }) => {
             ))}
           </Flex>
           <Flex width="33.3%" justifyContent="end" alignItems="end">
-            <Link isExternal href={post.url}>
+            <Link isExternal href={`${post.url}/?ref=prettyfolio`}>
               <Box
                 as={motion.div}
                 // rotate icon 360 degs

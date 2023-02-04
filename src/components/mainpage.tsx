@@ -213,7 +213,11 @@ const PostGrid = ({ filteredData }: any) => {
                 {post.title}
               </Box>
             </NextLink>
-            <Link href={post.url} isExternal={true} textStyle="cal.sm">
+            <Link
+              href={`${post.url}/?ref=prettyfolio`}
+              isExternal={true}
+              textStyle="cal.sm"
+            >
               <Box fontSize="1rem">
                 <TbExternalLink />
               </Box>
