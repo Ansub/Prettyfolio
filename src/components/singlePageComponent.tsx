@@ -49,7 +49,7 @@ const SinglePostComponent = ({ post }: { post: any }) => {
             color: "theme.orange",
             cursor: "pointer",
           }}
-          textStyle="cal.lg"
+          textStyle={{ base: "cal.lg", lg: "cal.xl" }}
         >
           {post.title}
         </Box>
