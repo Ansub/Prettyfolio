@@ -9,6 +9,7 @@ import {
   SiWebgl,
   SiWix,
   SiFramer,
+  SiJavascript,
 } from "react-icons/si"
 import { GrGraphQl } from "react-icons/gr"
 import { FaVuejs } from "react-icons/fa"
@@ -38,4 +39,9 @@ export const iconMap = {
   webgl: { logo: <SiWebgl />, color: "#961a1f", tooltip: "WebGL" },
   wix: { logo: <SiWix />, color: "#010101", tooltip: "Wix" },
   framer: { logo: <SiFramer />, color: "#034cf6", tooltip: "Framer" },
+  javascript: {
+    logo: <SiJavascript />,
+    color: "#facc2c",
+    tooltip: "Javascript",
+  },
 }
