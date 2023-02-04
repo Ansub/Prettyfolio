@@ -26,7 +26,8 @@ const Footer = () => {
             Ansub Khan
           </Link>
         </Box>
-        <Flex gap="3">
+        <Flex gap="3" alignItems="center">
+          <Box textStyle="cal.xs">Follow My Socials:</Box>
           <Link href={"https://twitter.com/justansub"} isExternal>
             <Box transition="all 0.3s ease" _hover={{ color: "theme.orange" }}>
               <FaTwitter />
