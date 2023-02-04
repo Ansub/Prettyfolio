@@ -43,7 +43,7 @@ const Home = ({ posts }: { posts: Posts[] }) => {
       <SEO
         title="Prettyfolio"
         description="Discover the best portfolios, curated just for you."
-        image="https://res.cloudinary.com/djs9vdcla/image/upload/v1675055860/projects/prettyfolio_e4zisb.png"
+        image="https://res.cloudinary.com/djs9vdcla/image/upload/v1675502613/projects/prettyfolioSEO_lrqcnt.png"
         link="https://prettyfolio.com"
       />
       <Head>
