@@ -61,8 +61,6 @@ const SinglePost = ({ post }: { post: any }) => {
     document.title = `${post.title} - Prettyfolio`
   }, [post])
 
-  useMixpanelTracking({ trackName: `${post.title} - Prettyfolio` })
-
   return (
     <Layout>
       <SEO

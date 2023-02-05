@@ -8,7 +8,6 @@ interface ImageProps {
   className?: string
   alt: string
   props?: any
-  loading: "eager" | "lazy"
 }
 
 export default function Image({
@@ -18,7 +17,6 @@ export default function Image({
   className,
   alt,
   props,
-  loading,
 }: ImageProps) {
   const [ready, setReady] = useState(false)
 
