@@ -200,7 +200,6 @@ const PostGrid = ({ filteredData }: any) => {
               <Image
                 src={post.featuredImage.url}
                 width={1920}
-                loading="lazy"
                 height={1080}
                 alt={post.title}
                 props={{

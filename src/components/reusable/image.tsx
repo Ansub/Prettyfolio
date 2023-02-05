@@ -43,7 +43,6 @@ export default function Image({
         alt={alt}
         height={height}
         width={width}
-        loading={loading}
         onLoad={handleLoad}
         sizes="(max-width: 768px) 100vw, 50vw"
       />
