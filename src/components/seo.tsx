@@ -27,7 +27,7 @@ const SEO = ({ title, image, description, link }: any) => {
       <link rel="icon" href="/favicon.ico" />
       <link
         rel="manifest"
-        href="images/site.webmanifest"
+        href="images/favicon/site.webmanifest"
         crossOrigin="anonymous"
       />
       <link
