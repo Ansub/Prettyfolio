@@ -20,7 +20,7 @@ const NotFound = () => {
           width={200}
           alt="prettyfolio"
         />
-        <Box textStyle={{ base: "cal.md", lg: "cal.xl" }} color="theme.orange">
+        <Box textStyle={{ base: "cal.md", lg: "cal.xl" }} color="theme.black">
           Page Not Found!
         </Box>
         <Button
