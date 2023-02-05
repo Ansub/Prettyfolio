@@ -2,8 +2,10 @@ import { Flex, Box, Button } from "@chakra-ui/react"
 import Layout from "../components/layout"
 import { useRouter } from "next/router"
 import Image from "next/image"
+import useMixpanelTracking from "../hooks/mixpanel"
 const NotFound = () => {
   const router = useRouter()
+  useMixpanelTracking({ trackName: "404 Page" })
   return (
     <Layout>
       <Flex

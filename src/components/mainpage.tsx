@@ -17,6 +17,7 @@ import { TbExternalLink } from "react-icons/tb"
 import { motion } from "framer-motion"
 import Image from "./reusable/image"
 import { Posts } from "../types"
+import useMixpanelButton from "../hooks/mixpanelButton"
 
 const HeadingSection = () => {
   return (
@@ -40,27 +41,33 @@ const FilterButton = ({
   setSelectedButton,
   handleCategory,
   title,
-}: any) => (
-  <Button
-    background="white"
-    marginX={{ base: "0.3rem", md: "0rem" }}
-    padding={{ base: "1rem 1.5rem", md: "1rem 1rem" }}
-    textStyle="cal.xs"
-    fontSize={{ base: "0.8rem", md: "1rem" }}
-    _hover={{ background: "white", color: "theme.orange" }}
-    color={
-      selectedButton === title.replace(/ /g, "").toLowerCase()
-        ? "theme.orange"
-        : "black"
-    }
-    onClick={() => {
-      setSelectedButton(title.replace(/ /g, "").toLowerCase())
-      handleCategory(title.replace(/ /g, "").toLowerCase())
-    }}
-  >
-    {title}
-  </Button>
-)
+}: any) => {
+  const handleClick = useMixpanelButton(`${title} Button Clicked - Homepage`)
+  return (
+    <Box>
+      <Button
+        background="white"
+        marginX={{ base: "0.3rem", md: "0rem" }}
+        padding={{ base: "1rem 1.5rem", md: "1rem 1rem" }}
+        textStyle="cal.xs"
+        fontSize={{ base: "0.8rem", md: "1rem" }}
+        _hover={{ background: "white", color: "theme.orange" }}
+        color={
+          selectedButton === title.replace(/ /g, "").toLowerCase()
+            ? "theme.orange"
+            : "black"
+        }
+        onClick={() => {
+          setSelectedButton(title.replace(/ /g, "").toLowerCase())
+          handleCategory(title.replace(/ /g, "").toLowerCase())
+          handleClick()
+        }}
+      >
+        {title}
+      </Button>
+    </Box>
+  )
+}
 const CategoriesSection = ({
   handleCategory,
   selectedButton,

@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Head from "next/head"
 import MainPage from "../components/mainpage"
 import SEO from "../components/seo"
+import useMixpanelTracking from "../hooks/mixpanel"
 
 // calling the API
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
@@ -38,6 +39,7 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ posts }: { posts: Posts[] }) => {
+  useMixpanelTracking({ trackName: "Home Page" })
   return (
     <Layout>
       <SEO

@@ -6,6 +6,7 @@ import Moment from "react-moment"
 import NextLink from "next/link"
 import { iconMap } from "../data/icons"
 import { motion } from "framer-motion"
+import useMixpanelButton from "../hooks/mixpanelButton"
 
 function Icon({ icon }: { icon: keyof typeof iconMap }) {
   const { logo, color, tooltip } = iconMap[icon] || {}
@@ -32,6 +33,9 @@ function Icon({ icon }: { icon: keyof typeof iconMap }) {
 }
 
 const SinglePostComponent = ({ post }: { post: any }) => {
+  const handleBackClick = useMixpanelButton("Back Button click")
+  const handleExternalLinkClick = useMixpanelButton("External Link Click")
+
   return (
     <Flex
       direction="column"
@@ -77,6 +81,7 @@ const SinglePostComponent = ({ post }: { post: any }) => {
           <Flex justifyContent="start" alignItems="start" width="33.3%">
             <NextLink href="/">
               <Box
+                onClick={handleBackClick}
                 as={motion.div}
                 // rotate icon 360 degs
                 whileHover={{
@@ -111,6 +116,7 @@ const SinglePostComponent = ({ post }: { post: any }) => {
           <Flex width="33.3%" justifyContent="end" alignItems="end">
             <Link isExternal href={`${post.url}/?ref=prettyfolio`}>
               <Box
+                onClick={handleExternalLinkClick}
                 as={motion.div}
                 // rotate icon 360 degs
                 whileHover={{

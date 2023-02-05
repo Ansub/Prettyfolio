@@ -3,6 +3,7 @@ import { GraphQLClient, gql } from "graphql-request"
 import Layout from "../components/layout"
 import SinglePostComponent from "../components/singlePageComponent"
 import SEO from "../components/seo"
+import useMixpanelTracking from "../hooks/mixpanel"
 
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 
@@ -59,6 +60,8 @@ const SinglePost = ({ post }: { post: any }) => {
   useEffect(() => {
     document.title = `${post.title} - Prettyfolio`
   }, [post])
+
+  useMixpanelTracking({ trackName: `${post.title} - Prettyfolio` })
 
   return (
     <Layout>

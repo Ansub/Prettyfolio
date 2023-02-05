@@ -3,6 +3,7 @@ import React from "react"
 import Image from "next/image"
 import NextLink from "next/link"
 import { motion } from "framer-motion"
+import useMixpanelButton from "../../hooks/mixpanelButton"
 const Logo = () => {
   return (
     <Box
@@ -28,6 +29,7 @@ const Logo = () => {
 }
 
 const Navbar = () => {
+  const handleClick = useMixpanelButton("Submit Portfolio Button Clicked")
   return (
     <Box padding="1rem" paddingX={{ md: "2rem" }}>
       <Flex alignItems="center" justifyContent="space-between">
@@ -44,6 +46,7 @@ const Navbar = () => {
               background: "theme.orange",
               transform: "scale(1.05)",
             }}
+            onClick={handleClick}
             transition="all 0.3s ease-in-out"
             paddingX="0.5rem"
             paddingY="0.2rem"
