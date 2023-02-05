@@ -34,15 +34,7 @@ const SLUGLIST = gql`
   }
 `
 
-export const getStaticPaths = async () => {
-  const { posts } = await graphcms.request(SLUGLIST)
-  return {
-    paths: posts.map((post: any) => ({ params: { slug: post.slug } })),
-    fallback: false,
-  }
-}
-
-export const getStaticProps = async ({ params }: any) => {
+export const getServerSideProps = async ({ params }: any) => {
   const slug = params.slug
   const data = await graphcms.request(QUERY, { slug })
 
@@ -51,7 +43,6 @@ export const getStaticProps = async ({ params }: any) => {
     props: {
       post,
     },
-    revalidate: 10,
   }
 }
 
