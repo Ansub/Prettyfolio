@@ -1,9 +1,14 @@
-import { Box, Container, Stack, Link, Flex } from "@chakra-ui/react"
+import { Box, Container, Stack, chakra, Link, Flex } from "@chakra-ui/react"
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
+import { BsFillHeartFill } from "react-icons/bs"
 
 const Footer = () => {
   return (
-    <Box bg="transparent" marginTop={{ base: "4rem", md: "6rem" }}>
+    <Box
+      bg="transparent"
+      marginBottom="1rem"
+      marginTop={{ base: "4rem", md: "6rem" }}
+    >
       <Container
         as={Stack}
         maxW={"100vw"}
@@ -14,16 +19,24 @@ const Footer = () => {
         align={{ base: "center", md: "center" }}
       >
         <Box textStyle="raleway.sm" fontWeight="500" fontSize="0.9rem">
-          Made with ❤️ by{" "}
-          <Link
-            isExternal
-            transition="all 0.3s ease"
-            _hover={{ color: "theme.orange", textDecoration: "none" }}
-            href="https://ansubkhan.com"
-            fontWeight="700"
-          >
-            Ansub Khan
-          </Link>
+          <Flex alignItems="center">
+            {" "}
+            Made with{" "}
+            <chakra.span paddingX="1" color="#98002e">
+              <BsFillHeartFill />
+            </chakra.span>
+            by
+            <Link
+              isExternal
+              transition="all 0.3s ease"
+              _hover={{ color: "theme.orange", textDecoration: "none" }}
+              href="https://ansubkhan.com"
+              fontWeight="700"
+              paddingX="1"
+            >
+              Ansub Khan
+            </Link>
+          </Flex>
         </Box>
         <Flex gap="3" alignItems="center">
           <Box textStyle="cal.xs">Follow My Socials:</Box>

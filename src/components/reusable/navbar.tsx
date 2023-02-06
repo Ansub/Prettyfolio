@@ -63,7 +63,7 @@ const Navbar = () => {
             _hover={{
               background: "transparent",
               transform: "scale(1.05)",
-              color: useColorModeValue("gray.600", "yellow.500"),
+              color: useColorModeValue("gray.500", "yellow.500"),
             }}
             onClick={toggleColorMode}
           >
