@@ -3,7 +3,7 @@ import { GraphQLClient, gql } from "graphql-request"
 import Layout from "../components/layout"
 import SinglePostComponent from "../components/singlePageComponent"
 import SEO from "../components/seo"
-import useMixpanelTracking from "../hooks/mixpanel"
+import { SinglePostProps } from "../types"
 
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 
@@ -26,14 +26,6 @@ const QUERY = gql`
   }
 `
 
-const SLUGLIST = gql`
-  {
-    posts(first: 500) {
-      slug
-    }
-  }
-`
-
 export const getServerSideProps = async ({ params }: any) => {
   const slug = params.slug
   const data = await graphcms.request(QUERY, { slug })
@@ -46,8 +38,7 @@ export const getServerSideProps = async ({ params }: any) => {
   }
 }
 
-const SinglePost = ({ post }: { post: any }) => {
-  console.log(post.featuredImage.url)
+const SinglePost = ({ post }: { post: SinglePostProps }) => {
   useEffect(() => {
     document.title = `${post.title} - Prettyfolio`
   }, [post])

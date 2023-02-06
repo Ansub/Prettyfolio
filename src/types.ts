@@ -14,3 +14,22 @@ export interface Posts {
     name: string[]
   }
 }
+
+export interface SinglePostProps {
+  title: string
+  datePublished: string
+  description: string
+  tags: string[]
+  slug: string
+  url: string
+  image: string
+  featuredImage: {
+    url: string
+  }
+  content: {
+    html: string
+  }
+  techstack: {
+    tech: string[]
+  }
+}

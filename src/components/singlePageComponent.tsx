@@ -7,6 +7,7 @@ import NextLink from "next/link"
 import { iconMap } from "../data/icons"
 import { motion } from "framer-motion"
 import useMixpanelButton from "../hooks/mixpanelButton"
+import { SinglePostProps } from "../types"
 
 function Icon({ icon }: { icon: keyof typeof iconMap }) {
   const { logo, color, tooltip } = iconMap[icon] || {}
@@ -32,7 +33,7 @@ function Icon({ icon }: { icon: keyof typeof iconMap }) {
   )
 }
 
-const SinglePostComponent = ({ post }: { post: any }) => {
+const SinglePostComponent = ({ post }: { post: SinglePostProps }) => {
   const handleBackClick = useMixpanelButton("Back Button click")
   const handleExternalLinkClick = useMixpanelButton("External Link Click")
 

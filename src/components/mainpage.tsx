@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, ChangeEvent } from "react"
 import {
   Flex,
   Box,
@@ -19,6 +19,12 @@ import Image from "./reusable/image"
 import { Posts } from "../types"
 import useMixpanelButton from "../hooks/mixpanelButton"
 
+/***
+ *
+ * HEADING SECTION
+ *
+ */
+
 const HeadingSection = () => {
   return (
     <Box textAlign="center">
@@ -36,13 +42,29 @@ const HeadingSection = () => {
     </Box>
   )
 }
+
+/***
+ *
+ * FILTER BUTTON REUSEABLE COMPONENT
+ *
+ */
+
+interface FilterButtonProps {
+  selectedButton: string
+  setSelectedButton: React.Dispatch<React.SetStateAction<string>>
+  handleCategory: (category: string) => void
+  title: string
+}
+
 const FilterButton = ({
   selectedButton,
   setSelectedButton,
   handleCategory,
   title,
-}: any) => {
-  const handleClick = useMixpanelButton(`${title} Button Clicked - Homepage`)
+}: FilterButtonProps) => {
+  const handleAnalyticsClick = useMixpanelButton(
+    `${title} Button Clicked - Homepage`
+  )
   return (
     <Box>
       <Button
@@ -60,7 +82,7 @@ const FilterButton = ({
         onClick={() => {
           setSelectedButton(title.replace(/ /g, "").toLowerCase())
           handleCategory(title.replace(/ /g, "").toLowerCase())
-          handleClick()
+          handleAnalyticsClick()
         }}
       >
         {title}
@@ -68,13 +90,28 @@ const FilterButton = ({
     </Box>
   )
 }
+
+/***
+ *
+ * BUTTON CATEGORY SECTION
+ *
+ */
+
+interface CategoriesSectionProps {
+  handleCategory: (category: string) => void
+  selectedButton: string
+  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
+  search: string
+  setSelectedButton: React.Dispatch<React.SetStateAction<string>>
+}
+
 const CategoriesSection = ({
   handleCategory,
   selectedButton,
   handleSearch,
   search,
   setSelectedButton,
-}: any) => {
+}: CategoriesSectionProps) => {
   return (
     <Flex
       marginBottom="2rem"
@@ -161,7 +198,13 @@ const CategoriesSection = ({
   )
 }
 
-const PostGrid = ({ filteredData }: any) => {
+/***
+ *
+ *  REUSEABLE CARD COMPONENT
+ *
+ */
+
+const PostGrid = ({ filteredData }: { filteredData: Posts[] }) => {
   return (
     <Grid
       gridTemplateColumns={{
@@ -171,7 +214,7 @@ const PostGrid = ({ filteredData }: any) => {
       }}
       gap={6}
     >
-      {filteredData.map((post: any) => (
+      {filteredData.map((post: Posts) => (
         <GridItem key={post.id}>
           <NextLink href={`/${post.slug}`}>
             <Box
@@ -235,26 +278,35 @@ const PostGrid = ({ filteredData }: any) => {
   )
 }
 
+/***
+ *
+ *  MAIN COMPONENT
+ *
+ */
+
 const MainPage = ({ posts }: { posts: Posts[] }) => {
   const [search, setSearch] = useState("")
   const [selectedButton, setSelectedButton] = useState("all")
-  // sorting based on the latest post
+
+  // SORTING BASED ON LATEST POST
   const data = posts.sort((a, b) => {
     return (
       new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
     )
   })
+
   const [filteredData, setFilteredData] = useState(data)
 
-  const handleSearch = (e: any) => {
+  // SEARCHING POSTS BASED ON TITLE
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
-    // filter the data array based on the input value
     const filteredSearchData = posts.filter((post) =>
       post.title.toLowerCase().includes(search.toLowerCase())
     )
     setFilteredData(filteredSearchData)
   }
 
+  // FILTERING POSTS BASED ON CATEGORY
   const handleCategory = (category: string) => {
     if (category === "all") {
       setFilteredData(data)
@@ -265,8 +317,7 @@ const MainPage = ({ posts }: { posts: Posts[] }) => {
       setFilteredData(filteredCategoryData)
     }
   }
-
-  // show all posts when search input is cleared
+  // SHOW ALL POSTS WHEN SEARCH INPUT IS CLEARED
   useEffect(() => {
     if (search === "") {
       setFilteredData(data)
