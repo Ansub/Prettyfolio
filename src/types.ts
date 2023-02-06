@@ -1,3 +1,9 @@
+import { ChangeEvent } from "react"
+
+/**
+ * mainpage.tsx
+ */
+
 export interface Posts {
   createdAt: string
   id: string
@@ -14,6 +20,25 @@ export interface Posts {
     name: string[]
   }
 }
+
+export interface CategoriesSectionProps {
+  handleCategory: (category: string) => void
+  selectedButton: string
+  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
+  search: string
+  setSelectedButton: React.Dispatch<React.SetStateAction<string>>
+}
+
+export interface FilterButtonProps {
+  selectedButton: string
+  setSelectedButton: React.Dispatch<React.SetStateAction<string>>
+  handleCategory: (category: string) => void
+  title: string
+}
+
+/**
+ * singlePageComponent.tsx
+ */
 
 export interface SinglePostProps {
   title: string

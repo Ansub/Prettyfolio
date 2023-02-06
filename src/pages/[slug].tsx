@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SinglePostComponent from "../components/singlePageComponent"
 import SEO from "../components/seo"
 import { SinglePostProps } from "../types"
+import useMixpanelTracking from "../hooks/mixpanel"
 
 const graphcms: any = new GraphQLClient(process.env.CONTENT_API as string)
 
@@ -39,6 +40,8 @@ export const getServerSideProps = async ({ params }: any) => {
 }
 
 const SinglePost = ({ post }: { post: SinglePostProps }) => {
+  useMixpanelTracking({ trackName: `${post.title} - Portfolio Opened` })
+
   useEffect(() => {
     document.title = `${post.title} - Prettyfolio`
   }, [post])

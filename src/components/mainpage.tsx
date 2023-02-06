@@ -18,6 +18,7 @@ import { motion } from "framer-motion"
 import Image from "./reusable/image"
 import { Posts } from "../types"
 import useMixpanelButton from "../hooks/mixpanelButton"
+import { CategoriesSectionProps, FilterButtonProps } from "../types"
 
 /***
  *
@@ -48,13 +49,6 @@ const HeadingSection = () => {
  * FILTER BUTTON REUSEABLE COMPONENT
  *
  */
-
-interface FilterButtonProps {
-  selectedButton: string
-  setSelectedButton: React.Dispatch<React.SetStateAction<string>>
-  handleCategory: (category: string) => void
-  title: string
-}
 
 const FilterButton = ({
   selectedButton,
@@ -96,14 +90,6 @@ const FilterButton = ({
  * BUTTON CATEGORY SECTION
  *
  */
-
-interface CategoriesSectionProps {
-  handleCategory: (category: string) => void
-  selectedButton: string
-  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
-  search: string
-  setSelectedButton: React.Dispatch<React.SetStateAction<string>>
-}
 
 const CategoriesSection = ({
   handleCategory,

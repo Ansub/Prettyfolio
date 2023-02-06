@@ -1,10 +1,9 @@
 import { Box, Container, Stack, Link, Flex } from "@chakra-ui/react"
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
-import { ReactNode } from "react"
 
 const Footer = () => {
   return (
-    <Box bg="white" marginTop="2rem">
+    <Box bg="white" marginTop={{ base: "4rem", md: "6rem" }}>
       <Container
         as={Stack}
         maxW={"100vw"}
