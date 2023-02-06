@@ -19,6 +19,8 @@ import Image from "./reusable/image"
 import { Posts } from "../types"
 import useMixpanelButton from "../hooks/mixpanelButton"
 import { CategoriesSectionProps, FilterButtonProps } from "../types"
+import { useColorMode } from "@chakra-ui/react"
+import { useColorModeValue } from "@chakra-ui/react"
 
 /***
  *
@@ -27,9 +29,11 @@ import { CategoriesSectionProps, FilterButtonProps } from "../types"
  */
 
 const HeadingSection = () => {
+  const color = useColorModeValue("theme.black", "theme.white")
+
   return (
     <Box textAlign="center">
-      <Box textStyle={{ base: "cal.lg", md: "cal.xl" }}>
+      <Box color={color} textStyle={{ base: "cal.lg", md: "cal.xl" }}>
         Pretty<chakra.span color="theme.orange">folio</chakra.span>
       </Box>
       <Box
@@ -59,19 +63,22 @@ const FilterButton = ({
   const handleAnalyticsClick = useMixpanelButton(
     `${title} Button Clicked - Homepage`
   )
+
+  const color = useColorModeValue("theme.black", "theme.white")
+
   return (
     <Box>
       <Button
-        background="white"
+        background={useColorModeValue("##fffff", "transparent")}
         marginX={{ base: "0.3rem", md: "0rem" }}
         padding={{ base: "1rem 1.5rem", md: "1rem 1rem" }}
         textStyle="cal.xs"
         fontSize={{ base: "0.8rem", md: "1rem" }}
-        _hover={{ background: "white", color: "theme.orange" }}
+        _hover={{ background: "transparent", color: "theme.orange" }}
         color={
           selectedButton === title.replace(/ /g, "").toLowerCase()
             ? "theme.orange"
-            : "black"
+            : color
         }
         onClick={() => {
           setSelectedButton(title.replace(/ /g, "").toLowerCase())
@@ -161,12 +168,13 @@ const CategoriesSection = ({
         />
       </Flex>
       <Flex marginTop={{ base: "1rem", md: "0rem" }}>
-        <InputGroup color="gray.500">
+        <InputGroup color={useColorModeValue("gray.500", "theme.white")}>
           <InputLeftElement pointerEvents="none">
             <SearchIcon />
           </InputLeftElement>
           <Input
             type="name"
+            color={useColorModeValue("gray.500", "theme.white")}
             placeholder="search by name"
             textStyle="raleway.xs"
             fontSize="14px"
@@ -193,6 +201,11 @@ const CategoriesSection = ({
 const PostGrid = ({ filteredData }: { filteredData: Posts[] }) => {
   const handleAnalyticsClick = useMixpanelButton(
     "External Button Clicked - Homepage"
+  )
+
+  const borderColor = useColorModeValue(
+    "1px solid #e2e8f0",
+    "1px solid #7476787b"
   )
   return (
     <Grid
@@ -227,7 +240,7 @@ const PostGrid = ({ filteredData }: { filteredData: Posts[] }) => {
                   stiffness: 100,
                 },
               }}
-              border="1px solid #e2e8f0"
+              border={borderColor}
             >
               <Image
                 src={post.featuredImage.url}

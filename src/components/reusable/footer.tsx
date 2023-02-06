@@ -3,7 +3,7 @@ import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
 
 const Footer = () => {
   return (
-    <Box bg="white" marginTop={{ base: "4rem", md: "6rem" }}>
+    <Box bg="transparent" marginTop={{ base: "4rem", md: "6rem" }}>
       <Container
         as={Stack}
         maxW={"100vw"}

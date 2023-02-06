@@ -9,6 +9,6 @@ body {
 .post img {
   box-shadow: 10px 10px 90px -54px rgba(0, 0, 0, 0.58);
   border-radius: 0.8rem;
-  border: 1px solid #eaeaea;
+  border: 1px solid #eaeaea72;
   pointer-events: none;
 }

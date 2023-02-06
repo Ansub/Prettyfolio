@@ -1,6 +1,24 @@
-import { extendTheme } from "@chakra-ui/react"
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react"
+import { mode } from "@chakra-ui/theme-tools"
+
+// 2. Add your color mode config
+const config: ThemeConfig = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+}
+
+const styles = {
+  global: (props: any) => ({
+    body: {
+      bg: mode("#ffffff", "#070707")(props),
+      color: mode("#070707", "#ffffff")(props),
+    },
+  }),
+}
 
 const customTheme = {
+  styles,
+  config,
   // Font Styles
   textStyles: {
     raleway: {
@@ -54,8 +72,9 @@ const customTheme = {
     theme: {
       bg: "#1a1a1d",
       red: "#C3073F",
-      white: "#eaeaea",
+      white: "#ffffff",
       orange: "#f43e36",
+      black: "#070707",
     },
   },
 }
