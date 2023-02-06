@@ -34,8 +34,10 @@ function Icon({ icon }: { icon: keyof typeof iconMap }) {
 }
 
 const SinglePostComponent = ({ post }: { post: SinglePostProps }) => {
-  const handleBackClick = useMixpanelButton("Back Button click")
-  const handleExternalLinkClick = useMixpanelButton("External Link Click")
+  const handleBackClick = useMixpanelButton(`${post.title} - Back Button click`)
+  const handleExternalLinkClick = useMixpanelButton(
+    `${post.title} - External Link Click`
+  )
 
   return (
     <Flex

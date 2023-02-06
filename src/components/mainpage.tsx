@@ -191,6 +191,9 @@ const CategoriesSection = ({
  */
 
 const PostGrid = ({ filteredData }: { filteredData: Posts[] }) => {
+  const handleAnalyticsClick = useMixpanelButton(
+    "External Button Clicked - Homepage"
+  )
   return (
     <Grid
       gridTemplateColumns={{
@@ -253,7 +256,7 @@ const PostGrid = ({ filteredData }: { filteredData: Posts[] }) => {
               isExternal={true}
               textStyle="cal.sm"
             >
-              <Box fontSize="1rem">
+              <Box fontSize="1rem" onClick={handleAnalyticsClick}>
                 <TbExternalLink />
               </Box>
             </Link>
