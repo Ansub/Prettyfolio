@@ -1,4 +1,4 @@
-import { Box, Flex, Link, Tooltip } from "@chakra-ui/react"
+import { Box, Flex, Link, Tooltip, useColorModeValue } from "@chakra-ui/react"
 import { TbExternalLink } from "react-icons/tb"
 import { MdDateRange } from "react-icons/md"
 import { IoIosArrowRoundBack } from "react-icons/io"
@@ -15,9 +15,10 @@ function Icon({ icon }: { icon: keyof typeof iconMap }) {
     <Tooltip
       label={tooltip}
       aria-label={tooltip}
+      textStyle="cal.xs"
       background="transparent"
       boxShadow="none"
-      color="#212121"
+      color={useColorModeValue("theme.black", "theme.white")}
     >
       <Box
         // add animation to icon
@@ -34,6 +35,7 @@ function Icon({ icon }: { icon: keyof typeof iconMap }) {
 }
 
 const SinglePostComponent = ({ post }: { post: SinglePostProps }) => {
+  const hoverColor = useColorModeValue("theme.black", "theme.white")
   const handleBackClick = useMixpanelButton(`${post.title} - Back Button click`)
   const handleExternalLinkClick = useMixpanelButton(
     `${post.title} - External Link Click`
@@ -52,8 +54,9 @@ const SinglePostComponent = ({ post }: { post: SinglePostProps }) => {
       <Box width={{ sm: "90%", md: "80%", lg: "70%", xl: "60%" }}>
         <Box
           transition="all 0.3s ease-in-out"
+          color="theme.orange"
           _hover={{
-            color: "theme.orange",
+            color: hoverColor,
             cursor: "pointer",
           }}
           textStyle={{ base: "cal.lg", lg: "cal.xl" }}
@@ -88,8 +91,6 @@ const SinglePostComponent = ({ post }: { post: SinglePostProps }) => {
                 as={motion.div}
                 // rotate icon 360 degs
                 whileHover={{
-                  rotate: "360deg",
-                  scale: 1.2,
                   transition: {
                     duration: 0.3,
                     type: "spring",
@@ -123,8 +124,6 @@ const SinglePostComponent = ({ post }: { post: SinglePostProps }) => {
                 as={motion.div}
                 // rotate icon 360 degs
                 whileHover={{
-                  rotate: "360deg",
-                  scale: 1.2,
                   transition: {
                     duration: 0.3,
                     type: "spring",
