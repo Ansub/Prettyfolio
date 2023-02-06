@@ -105,6 +105,7 @@ const CategoriesSection = ({
   search,
   setSelectedButton,
 }: CategoriesSectionProps) => {
+  const placeholderColor = useColorModeValue("theme.black", "theme.white")
   return (
     <Flex
       marginBottom="2rem"
@@ -167,14 +168,14 @@ const CategoriesSection = ({
           title="Fancy"
         />
       </Flex>
-      <Flex marginTop={{ base: "1rem", md: "0rem" }}>
-        <InputGroup color={useColorModeValue("gray.500", "theme.white")}>
+      <Flex alignItems="center" marginTop={{ base: "1rem", md: "0rem" }}>
+        <InputGroup color={useColorModeValue("theme.black", "theme.white")}>
           <InputLeftElement pointerEvents="none">
             <SearchIcon />
           </InputLeftElement>
           <Input
             type="name"
-            color={useColorModeValue("gray.500", "theme.white")}
+            color={useColorModeValue("theme.black", "theme.white")}
             placeholder="search by name"
             textStyle="raleway.xs"
             fontSize="14px"
@@ -182,6 +183,7 @@ const CategoriesSection = ({
             focusBorderColor="theme.orange"
             maxW={{ base: "100%", md: "300px" }}
             value={search}
+            _placeholder={{ color: placeholderColor }}
             onChange={handleSearch}
             variant="flushed"
             borderBottom="0px"
@@ -214,7 +216,7 @@ const PostGrid = ({ filteredData }: { filteredData: Posts[] }) => {
         md: "repeat(2, 1fr)",
         lg: "repeat(3, 1fr)",
       }}
-      gap={6}
+      gap={8}
     >
       {filteredData.map((post: Posts) => (
         <GridItem key={post.id}>

@@ -35,7 +35,12 @@ const Navbar = () => {
 
   const handleClick = useMixpanelButton("Submit Portfolio Button Clicked")
   return (
-    <Box padding="1rem" paddingX={{ md: "2rem" }}>
+    <Box
+      marginBottom={{ base: "1rem", md: "2rem" }}
+      marginTop="0.5rem"
+      padding="1rem"
+      paddingX={{ md: "2rem" }}
+    >
       <Flex alignItems="center" justifyContent="space-between">
         <Logo />
 
@@ -78,8 +83,8 @@ const Navbar = () => {
               }}
               onClick={handleClick}
               transition="all 0.3s ease-in-out"
-              paddingX="0.5rem"
-              paddingY="0.2rem"
+              paddingX="0.8rem"
+              paddingY="0"
               color="white"
               textStyle="cal.sm"
               fontSize={{ base: "0.9rem", md: "1.0.8rem" }}
