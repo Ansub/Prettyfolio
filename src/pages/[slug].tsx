@@ -38,7 +38,7 @@ export const getStaticPaths = async () => {
   const { posts } = await graphcms.request(SLUGLIST)
   return {
     paths: posts.map((post: any) => ({ params: { slug: post.slug } })),
-    fallback: false,
+    fallback: "blocking",
   }
 }
 
