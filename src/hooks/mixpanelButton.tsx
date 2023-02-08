@@ -6,11 +6,11 @@ const useMixpanelButton = (trackName: string) => {
     mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_ID || "", {
       debug: true,
       ignore_dnt: true,
-  })
+    })
     mixpanel.track(trackName)
   }, [trackName])
 
   return handleClick
-
+}
 
 export default useMixpanelButton
