@@ -12,9 +12,11 @@ import {
   SiJavascript,
 } from "react-icons/si"
 import { GrGraphQl } from "react-icons/gr"
-import { FaVuejs } from "react-icons/fa"
+import { FaVuejs, FaCss3 } from "react-icons/fa"
 import { FiFigma } from "react-icons/fi"
 import { TbBrandNextjs } from "react-icons/tb"
+import { AiFillHtml5 } from "react-icons/ai"
+import { BsFillBootstrapFill } from "react-icons/bs"
 
 export const iconMap = {
   figma: { logo: <FiFigma />, color: "#eb4667", tooltip: "Figma" },
@@ -43,5 +45,20 @@ export const iconMap = {
     logo: <SiJavascript />,
     color: "#facc2c",
     tooltip: "Javascript",
+  },
+  html: {
+    logo: <AiFillHtml5 />,
+    color: "#db4924",
+    tooltip: "HTML",
+  },
+  css: {
+    logo: <FaCss3 />,
+    color: "#244bdd",
+    tooltip: "CSS",
+  },
+  bootstrap: {
+    logo: <BsFillBootstrapFill />,
+    color: "#7510f1",
+    tooltip: "Bootstrap",
   },
 }
