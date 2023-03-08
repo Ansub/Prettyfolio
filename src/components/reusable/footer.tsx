@@ -22,7 +22,7 @@ const Footer = () => {
           <Flex alignItems="center">
             {" "}
             Made with{" "}
-            <chakra.span paddingX="1" color="#98002e">
+            <chakra.span paddingX="1" color="theme.orange">
               <BsFillHeartFill />
             </chakra.span>
             by
